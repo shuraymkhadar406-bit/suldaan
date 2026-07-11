@@ -1,0 +1,98 @@
+/* =========================
+   USER LOGIN & REGISTER
+========================= */
+
+body{
+    margin:0;
+    padding:0;
+    min-height:100vh;
+    font-family:"Segoe UI",sans-serif;
+    background:linear-gradient(135deg,#4f46e5,#2563eb,#06b6d4);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    padding:30px;
+}
+
+/* Form */
+
+form{
+    background:#fff;
+    border-radius:20px;
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+    animation:fadeIn .7s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Titles */
+
+h2{
+    color:#2563eb;
+    font-weight:bold;
+}
+
+label{
+    font-weight:600;
+    color:#444;
+}
+
+/* Inputs */
+
+.form-control{
+    height:50px;
+    border-radius:10px;
+    border:2px solid #dbe4ff;
+}
+
+.form-control:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 10px rgba(37,99,235,.25);
+}
+
+/* Button */
+
+.btn-primary{
+    height:50px;
+    border:none;
+    border-radius:10px;
+    font-size:18px;
+    font-weight:bold;
+    background:linear-gradient(90deg,#2563eb,#06b6d4);
+    transition:.3s;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(37,99,235,.35);
+}
+
+/* Links */
+
+a{
+    text-decoration:none;
+    color:#2563eb;
+    font-weight:bold;
+}
+
+a:hover{
+    color:#1d4ed8;
+}
+
+/* Alerts */
+
+.alert{
+    border-radius:10px;
+}

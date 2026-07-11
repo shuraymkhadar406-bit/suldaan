@@ -1,0 +1,220 @@
+.pdf-list {
+	width: 80%;
+}
+.card {
+	width: 18rem;
+}
+.category .list-group {
+	width: 200px;
+}
+.nd {
+	text-decoration: none;
+}
+
+/* ===========================
+   ONLINE BOOK STORE
+=========================== */
+
+body{
+    background: linear-gradient(135deg,#eef4ff,#ffffff);
+    font-family: "Segoe UI",sans-serif;
+    color:#333;
+}
+
+/* Container */
+
+.container{
+    max-width:1400px;
+    margin:auto;
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+
+.navbar{
+    background:#182848 !important;
+    border-radius:15px;
+    margin-top:20px;
+    padding:15px 25px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.navbar-brand{
+    color:#fff !important;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.nav-link{
+    color:#fff !important;
+    font-weight:500;
+    transition:.3s;
+}
+
+.nav-link:hover{
+    color:#8bc6ff !important;
+}
+
+/* ===========================
+   SEARCH BAR
+=========================== */
+
+.input-group{
+    box-shadow:0 8px 20px rgba(0,0,0,.1);
+}
+
+.form-control{
+    height:55px;
+    border-radius:12px 0 0 12px;
+    border:2px solid #d8e2ff;
+}
+
+.input-group-text{
+    border-radius:0 12px 12px 0;
+    width:70px;
+    justify-content:center;
+    background:#2d6cdf;
+    border:none;
+}
+
+/* ===========================
+   BOOKS
+=========================== */
+
+.pdf-list{
+    width:80%;
+    gap:20px;
+}
+
+.card{
+    width:300px;
+    border:none;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+    transition:.4s;
+    background:#fff;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+}
+
+.card-img-top{
+    height:340px;
+    object-fit:cover;
+}
+
+.card-body{
+    padding:20px;
+}
+
+.card-title{
+    font-size:22px;
+    font-weight:bold;
+    color:#182848;
+}
+
+.card-text{
+    font-size:15px;
+    color:#555;
+    line-height:1.7;
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.btn-success{
+    border-radius:10px;
+    padding:10px 20px;
+    background:#28a745;
+    border:none;
+    transition:.3s;
+}
+
+.btn-success:hover{
+    background:#1f8b39;
+}
+
+.btn-primary{
+    border-radius:10px;
+    padding:10px 20px;
+    background:#2d6cdf;
+    border:none;
+    transition:.3s;
+}
+
+.btn-primary:hover{
+    background:#154fb5;
+}
+
+/* ===========================
+   CATEGORY & AUTHOR
+=========================== */
+
+.category{
+    width:20%;
+    padding-left:20px;
+}
+
+.list-group{
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 20px rgba(0,0,0,.12);
+}
+
+.list-group-item.active{
+    background:#182848;
+    border:none;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.list-group-item{
+    padding:15px;
+    border:none;
+    transition:.3s;
+}
+
+.list-group-item:hover{
+    background:#dbe8ff;
+    color:#182848;
+    transform:translateX(5px);
+}
+
+/* ===========================
+   EMPTY ALERT
+=========================== */
+
+.alert{
+    border-radius:15px;
+    box-shadow:0 10px 20px rgba(0,0,0,.1);
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:992px){
+
+.pdf-list{
+    width:100%;
+    justify-content:center;
+}
+
+.category{
+    display:none;
+}
+
+.card{
+    width:100%;
+}
+
+.navbar-brand{
+    font-size:22px;
+}
+
+}
