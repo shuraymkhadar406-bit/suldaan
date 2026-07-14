@@ -49,11 +49,11 @@ $category = get_all_category($conn);
 		        <li class="nav-item">
 		          <a class="nav-link active" 
 		             aria-current="page" 
-		             href="index.php">Store</a>
+		             href="index.php">first in</a>
 		        </li>
 		        <li class="nav-item">
 		          <a class="nav-link" 
-		             href="#">Contact</a>
+		             href="contact.php">Contact</a>
 		        </li>
 		        <li class="nav-item">
 		          <a class="nav-link" 
