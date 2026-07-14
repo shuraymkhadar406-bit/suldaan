@@ -53,7 +53,7 @@ $category = get_all_category($conn);
 		        </li>
 		        <li class="nav-item">
 		          <a class="nav-link" 
-		             href="contact.php">Contact</a>
+		             href="contact.php">Contacts</a>
 		        </li>
 		        <li class="nav-item">
 		          <a class="nav-link" 
