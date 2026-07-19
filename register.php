@@ -78,7 +78,11 @@ Join the Digital Library & E-Book Store
 
 </div>
 
-
+<script>
+window.onload = function () {
+    document.querySelector("form").reset();
+};
+</script>
 
 </body>
 </html>

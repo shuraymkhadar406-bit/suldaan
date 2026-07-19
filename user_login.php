@@ -57,6 +57,9 @@ Login to your Digital Library
         </label>
     </div>
 </div>
+<div class="text-end mb-3">
+    <a href="forget password.php">Forgot Password?</a>
+</div>
 
         <button type="submit" class="btn btn-primary w-100">
             Login
@@ -81,6 +84,12 @@ document.getElementById("showPassword").addEventListener("change", function () {
         password.type = "password";
     }
 });
+
+<script>
+window.onload = function () {
+    document.querySelector("form").reset();
+};
+</script>
 </script>
 </body>
 </html>
