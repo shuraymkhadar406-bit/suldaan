@@ -46,10 +46,17 @@ Login to your Digital Library
             <input type="email" name="email" class="form-control" required>
         </div>
 
-        <div class="mb-3">
-            <label>Password</label>
-            <input type="password" name="password" class="form-control" required>
-        </div>
+       <div class="mb-3">
+    <label>Password</label>
+    <input type="password" id="password" name="password" class="form-control" required>
+
+    <div class="form-check mt-2">
+        <input class="form-check-input" type="checkbox" id="showPassword">
+        <label class="form-check-label" for="showPassword">
+            Show Password
+        </label>
+    </div>
+</div>
 
         <button type="submit" class="btn btn-primary w-100">
             Login
@@ -64,5 +71,16 @@ Login to your Digital Library
 
 </div>
 
+<script>
+document.getElementById("showPassword").addEventListener("change", function () {
+    const password = document.getElementById("password");
+
+    if (this.checked) {
+        password.type = "text";
+    } else {
+        password.type = "password";
+    }
+});
+</script>
 </body>
 </html>
