@@ -1,25 +1,28 @@
 <?php
 include "../db_conn.php";
 
-$token = $_POST['token'];
-$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+if (!isset($_GET['token'])) {
+    die("Invalid or missing reset token");
+}
+
+$token = $_GET['token'];
 
 $stmt = $conn->prepare("SELECT * FROM password_resets WHERE token=?");
 $stmt->execute([$token]);
 
-if($stmt->rowCount()==0){
-    die("Invalid Token");
+if ($stmt->rowCount() == 0) {
+    die("Invalid token");
 }
 
-$row = $stmt->fetch();
+$data = $stmt->fetch(PDO::FETCH_ASSOC);
 
-$email = $row['email'];
 
-$conn->prepare("UPDATE users SET password=? WHERE email=?")
-->execute([$password,$email]);
+if (strtotime($data['expires_at']) < time()) {
+    die("Token expired");
+}
 
-$conn->prepare("DELETE FROM password_resets WHERE email=?")
-->execute([$email]);
+$email = $data['email'];
 
-echo "Password changed successfully.";
+echo "Token verified. You can reset your password.";
+
 ?>
