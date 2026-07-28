@@ -1,44 +1,25 @@
 <?php
 include "../db_conn.php";
 
-if(isset($_POST['email'])){
+$token = $_POST['token'];
+$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    $email = $_POST['email'];
+$stmt = $conn->prepare("SELECT * FROM password_resets WHERE token=?");
+$stmt->execute([$token]);
 
-    $check = mysqli_query($conn,"SELECT * FROM users WHERE email='$email'");
-
-    if(mysqli_num_rows($check)>0){
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Reset Password</title>
-</head>
-<body>
-
-<form method="POST">
-    <input type="hidden" name="email" value="<?php echo $email; ?>">
-    <input type="password" name="password" placeholder="New Password" required>
-    <button type="submit" name="update">Update Password</button>
-</form>
-
-</body>
-</html>
-
-<?php
-    }else{
-        echo "Email not found!";
-    }
+if($stmt->rowCount()==0){
+    die("Invalid Token");
 }
 
-if(isset($_POST['update'])){
+$row = $stmt->fetch();
 
-    $email=$_POST['email'];
-    $password=password_hash($_POST['password'],PASSWORD_DEFAULT);
+$email = $row['email'];
 
-    mysqli_query($conn,"UPDATE users SET password='$password' WHERE email='$email'");
+$conn->prepare("UPDATE users SET password=? WHERE email=?")
+->execute([$password,$email]);
 
-    echo "Password updated successfully.<br>";
-    echo "<a href='user_login.php'>Login Now</a>";
-}
+$conn->prepare("DELETE FROM password_resets WHERE email=?")
+->execute([$email]);
+
+echo "Password changed successfully.";
 ?>
