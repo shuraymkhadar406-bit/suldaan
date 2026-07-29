@@ -52,6 +52,7 @@ if (!isset($_SESSION['admin_id']) &&
 		           name="password" 
 		           id="exampleInputPassword1">
 		  </div>
+	
 		  <button type="submit" 
 		          class="btn btn-primary">
 		          Login</button>
