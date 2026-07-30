@@ -163,7 +163,7 @@ if (isset($_SESSION['user_id']) &&
 
 		<div class="mb-3">
 		    <label class="form-label">
-		           Book Category
+		           Book Categories
 		           </label>
 		    <select name="book_category"
 		            class="form-control">
