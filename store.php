@@ -57,7 +57,7 @@ $category = get_all_category($conn);
 		        </li>
 		        <li class="nav-item">
 		          <a class="nav-link" 
-		             href="#about.php">Aboutss</a>
+		             href="about.php">Aboutss</a>
 		        </li>
 		        <li class="nav-item">
     <a class="nav-link" href="register.php">Register</a>
