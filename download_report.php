@@ -15,7 +15,7 @@ WHERE DATE(downloaded_date)=CURDATE()
 $month = $conn->query("
 SELECT COUNT(*) FROM downloads
 WHERE MONTH(downloaded_date)=MONTH(CURDATE())
-AND YEAR(download_date)=YEAR(CURDATE())
+AND YEAR(downloaded_date)=YEAR(CURDATE())
 ")->fetchColumn();
 
 // Yearly downloads
@@ -57,6 +57,18 @@ table{
 </head>
 
 <body>
+    <form method="GET" class="mb-3">
+    <select name="filter" class="form-select w-25 d-inline">
+        <option value="all">All Downloads</option>
+        <option value="today">Today</option>
+        <option value="month">This Month</option>
+        <option value="year">This Year</option>
+    </select>
+
+    <button type="submit" class="btn btn-primary">
+        Filter
+    </button>
+</form>
 
 <div class="container mt-4">
 
@@ -124,7 +136,15 @@ Download History
 
 <td><?= $row['id']; ?></td>
 
-<td><?= $row['user_id']; ?></td>
+<td>
+<?php
+$user = $conn->prepare("SELECT full_name FROM users WHERE id = ?");
+$user->execute([$row['user_id']]);
+$name = $user->fetch(PDO::FETCH_ASSOC);
+
+echo $name['full_name'];
+?>
+</td>
 
 <td><?= $row['book_title']; ?></td>
 
