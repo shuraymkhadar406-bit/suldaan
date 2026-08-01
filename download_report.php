@@ -2,72 +2,146 @@
 session_start();
 include "db_conn.php";
 
-/* optional security */
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit;
-}
+// Total downloads
+$total = $conn->query("SELECT COUNT(*) FROM downloads")->fetchColumn();
 
-$sql = "SELECT downloads.*, users.full_name 
-        FROM downloads 
-        LEFT JOIN users ON users.id = downloads.user_id
-        ORDER BY downloads.downloaded_at DESC";
+// Today's downloads
+$today = $conn->query("
+SELECT COUNT(*) FROM downloads
+WHERE DATE(downloaded_date)=CURDATE()
+")->fetchColumn();
 
-$stmt = $conn->prepare($sql);
-$stmt->execute();
-$downloads = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// Monthly downloads
+$month = $conn->query("
+SELECT COUNT(*) FROM downloads
+WHERE MONTH(downloaded_date)=MONTH(CURDATE())
+AND YEAR(download_date)=YEAR(CURDATE())
+")->fetchColumn();
+
+// Yearly downloads
+$year = $conn->query("
+SELECT COUNT(*) FROM downloads
+WHERE YEAR(downloaded_date)=YEAR(CURDATE())
+")->fetchColumn();
+
+// Download history
+$stmt = $conn->query("
+SELECT *
+FROM downloads
+ORDER BY downloaded_date DESC
+");
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Download Report</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/report.css">
+<meta charset="UTF-8">
+<title>Download Reports</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body{
+    background:#f5f7fb;
+}
+.card{
+    border:none;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+table{
+    background:white;
+}
+</style>
+
 </head>
+
 <body>
 
-<div class="report-container">
+<div class="container mt-4">
 
-    <div class="report-header">
-        <h2>📥 Download Report</h2>
-        <p>Online Digital Library & E-Book Store</p>
-    </div>
+<h2 class="mb-4 text-center">
+Download Reports
+</h2>
 
-    <table class="table report-table">
+<div class="row">
 
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>User</th>
-                <th>Book Title</th>
-                <th>Book File</th>
-                <th>Downloaded At</th>
-            </tr>
-        </thead>
+<div class="col-md-3">
+<div class="card p-3 text-center">
+<h5>Total Downloads</h5>
+<h2><?= $total ?></h2>
+</div>
+</div>
 
-        <tbody>
+<div class="col-md-3">
+<div class="card p-3 text-center">
+<h5>Today</h5>
+<h2><?= $today ?></h2>
+</div>
+</div>
 
-        <?php
-        $i=1;
-        foreach($downloads as $d){
-        ?>
+<div class="col-md-3">
+<div class="card p-3 text-center">
+<h5>This Month</h5>
+<h2><?= $month ?></h2>
+</div>
+</div>
 
-        <tr>
-            <td><?= $i++ ?></td>
-            <td><?= htmlspecialchars($d['full_name']) ?></td>
-            <td><?= htmlspecialchars($d['book_title']) ?></td>
-            <td><?= htmlspecialchars($d['book_file']) ?></td>
-            <td><?= $d['downloaded_at'] ?></td>
-        </tr>
+<div class="col-md-3">
+<div class="card p-3 text-center">
+<h5>This Year</h5>
+<h2><?= $year ?></h2>
+</div>
+</div>
 
-        <?php } ?>
+</div>
 
-        </tbody>
+<hr>
 
-    </table>
+<h3 class="mb-3">
+Download History
+</h3>
+
+<table class="table table-bordered table-striped">
+
+<thead class="table-dark">
+
+<tr>
+<th>ID</th>
+<th>User ID</th>
+<th>Book</th>
+<th>File</th>
+<th>Date</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<?php while($row=$stmt->fetch(PDO::FETCH_ASSOC)){ ?>
+
+<tr>
+
+<td><?= $row['id']; ?></td>
+
+<td><?= $row['user_id']; ?></td>
+
+<td><?= $row['book_title']; ?></td>
+
+<td><?= $row['book_file']; ?></td>
+
+<td><?= $row['downloaded_date']; ?></td>
+
+</tr>
+
+<?php } ?>
+
+</tbody>
+
+</table>
 
 </div>
 
 </body>
+
 </html>
