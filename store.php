@@ -59,13 +59,23 @@ $category = get_all_category($conn);
 		          <a class="nav-link" 
 		             href="about.php">Aboutss</a>
 		        </li>
-		        <li class="nav-item">
+	<?php if (!isset($_SESSION['user_id'])) { ?>
+
+<li class="nav-item">
     <a class="nav-link" href="register.php">Register</a>
 </li>
 
 <li class="nav-item">
     <a class="nav-link" href="user_login.php">User Login</a>
 </li>
+
+<?php } else { ?>
+
+<li class="nav-item">
+    <a class="nav-link text-danger" href="logout.php">Logout</a>
+</li>
+
+<?php } ?>
 
 <li class="nav-item">
     <a class="nav-link" href="login.php">Admin Login</a>
