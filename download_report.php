@@ -23,13 +23,24 @@ $year = $conn->query("
 SELECT COUNT(*) FROM downloads
 WHERE YEAR(downloaded_date)=YEAR(CURDATE())
 ")->fetchColumn();
+ // Download history filter
+$filter = $_GET['filter'] ?? 'all';
 
-// Download history
-$stmt = $conn->query("
-SELECT *
-FROM downloads
-ORDER BY downloaded_date DESC
-");
+$sql = "SELECT * FROM downloads";
+
+if ($filter == "today") {
+    $sql .= " WHERE DATE(downloaded_date) = CURDATE()";
+} elseif ($filter == "month") {
+    $sql .= " WHERE MONTH(downloaded_date) = MONTH(CURDATE())
+              AND YEAR(downloaded_date) = YEAR(CURDATE())";
+} elseif ($filter == "year") {
+    $sql .= " WHERE YEAR(downloaded_date) = YEAR(CURDATE())";
+}
+
+$sql .= " ORDER BY downloaded_date DESC";
+
+$stmt = $conn->query($sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -59,11 +70,11 @@ table{
 <body>
     <form method="GET" class="mb-3">
     <select name="filter" class="form-select w-25 d-inline">
-        <option value="all">All Downloads</option>
-        <option value="today">Today</option>
-        <option value="month">This Month</option>
-        <option value="year">This Year</option>
-    </select>
+    <option value="all" <?= ($filter=="all") ? "selected" : "" ?>>All Downloads</option>
+    <option value="today" <?= ($filter=="today") ? "selected" : "" ?>>Today</option>
+    <option value="month" <?= ($filter=="month") ? "selected" : "" ?>>This Month</option>
+    <option value="year" <?= ($filter=="year") ? "selected" : "" ?>>This Year</option>
+</select>
 
     <button type="submit" class="btn btn-primary">
         Filter

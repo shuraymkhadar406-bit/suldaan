@@ -72,7 +72,7 @@ $category = get_all_category($conn);
 <?php } else { ?>
 
 <li class="nav-item">
-    <a class="nav-link text-danger" href="logout.php">Logout</a>
+    <a class="nav-link text-danger" href="logout2.php">Logout</a>
 </li>
 
 <?php } ?>
