@@ -33,6 +33,7 @@ $category = get_all_category($conn);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 </head>
 <body>
@@ -43,67 +44,116 @@ $category = get_all_category($conn);
 		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		      <span class="navbar-toggler-icon"></span>
 		    </button>
-		    <div class="collapse navbar-collapse" 
-		         id="navbarSupportedContent">
-		      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-		        <li class="nav-item">
-		          <a class="nav-link active" 
-		             aria-current="page" 
-		             href="index.php">Home</a>
-		        </li>
-		        <li class="nav-item">
-		          <a class="nav-link" 
-		             href="contact.php">Contacts</a>
-		        </li>
-		        <li class="nav-item">
-		          <a class="nav-link" 
-		             href="about.php">Aboutss</a>
-		        </li>
-	<?php if (!isset($_SESSION['user_id'])) { ?>
-
-<li class="nav-item">
-    <a class="nav-link" href="register.php">Register</a>
+		    <li class="nav-item">
+    <a class="nav-link active" href="index.php">
+        <i class="fas fa-house"></i> Home
+    </a>
 </li>
 
 <li class="nav-item">
-    <a class="nav-link" href="user_login.php">User Login</a>
+    <a class="nav-link" href="contact.php">
+        <i class="fas fa-phone"></i> Contact
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link" href="about.php">
+        <i class="fas fa-circle-info"></i> About
+    </a>
+</li>
+
+<?php if (!isset($_SESSION['user_id'])) { ?>
+
+<li class="nav-item">
+    <a class="nav-link" href="register.php">
+        <i class="fas fa-user-plus"></i> Register
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link" href="user_login.php">
+        <i class="fas fa-right-to-bracket"></i> User Login
+    </a>
 </li>
 
 <?php } else { ?>
 
 <li class="nav-item">
-    <a class="nav-link text-danger" href="logout2.php">Logout</a>
+    <a class="nav-link text-warning" href="logout2.php">
+        <i class="fas fa-right-from-bracket"></i> Logout
+    </a>
 </li>
 
 <?php } ?>
 
 <li class="nav-item">
-    <a class="nav-link" href="login.php">Admin Login</a>
+    <a class="nav-link" href="login.php">
+        <i class="fas fa-user-shield"></i> Admin
+    </a>
 </li>
+
+<?php  ?>
+
+
 
 		      </ul>
 		    </div>
 		  </div>
 		</nav>
-		<form action="search.php"
-             method="get" 
-             style="width: 100%; max-width: 30rem">
+		<!-- Hero Section -->
+<div class="hero-section">
+    <h1><i class="fas fa-book-open"></i> Welcome to Digital Library & E-Book Store</h1>
+    <p>
+        Discover thousands of books from different categories.
+        Read online or download your favorite books anytime.
+    </p>
+</div>
 
-       	<div class="input-group my-5">
-		  <input type="text" 
-		         class="form-control"
-		         name="key" 
-		         placeholder="Search Book..." 
-		         aria-label="Search Book..." 
-		         aria-describedby="basic-addon2">
+<!-- Statistics -->
+<div class="row text-center mb-4">
+    <div class="col-md-4">
+        <div class="stat-box">
+            <i class="fas fa-book fa-2x"></i>
+            <h3><?=count($books)?></h3>
+            <p>Books</p>
+        </div>
+    </div>
 
-		  <button class="input-group-text
-		                 btn btn-primary" 
-		          id="basic-addon2">
-		          <img src="img/search.png"
-		               width="20">
+    <div class="col-md-4">
+        <div class="stat-box">
+            <i class="fas fa-user-edit fa-2x"></i>
+            <h3><?=count($authors)?></h3>
+            <p>Authors</p>
+        </div>
+    </div>
 
-		  </button>
+    <div class="col-md-4">
+        <div class="stat-box">
+            <i class="fas fa-list fa-2x"></i>
+            <h3><?=count($category)?></h3>
+            <p>Categories</p>
+        </div>
+    </div>
+</div>
+
+<form action="search.php"
+      method="get"
+      class="search-box">
+
+    <div class="input-group my-5">
+
+        <input type="text"
+               class="form-control"
+               name="key"
+               placeholder="Search books...">
+
+        <button class="btn btn-primary">
+            <i class="fas fa-search"></i>
+        </button>
+
+    </div>
+
+</form>
 		</div>
        </form>
 		<div class="d-flex pt-3">
@@ -149,15 +199,19 @@ $category = get_all_category($conn);
 								<?php } ?>
 							<br></b></i>
 						</p>
-                       <a href="upload/file/<?=$book['file']?>"
-                          class="btn btn-success">Open</a>
+       <div class="d-flex justify-content-between mt-3">
 
- 
+<a href="upload/file/<?=$book['file']?>"
+class="btn btn-success">
+<i class="fas fa-book-open"></i> Read
+</a>
 
 <a href="download.php?file=<?=$book['file']?>"
-   class="btn btn-primary">
-   Download
+class="btn btn-primary">
+<i class="fas fa-download"></i> Download
 </a>
+
+</div>
 					</div>
 				</div>
 				<?php } ?>
@@ -197,5 +251,25 @@ $category = get_all_category($conn);
 		</div>
 		</div>
 	</div>
+
+	<footer class="footer text-center">
+
+    <h4>Digital Library & E-Book Store</h4>
+
+    <p>
+        Read • Learn • Download
+    </p>
+
+    <hr>
+
+    <p>
+        © 2026 Digital Library & E-Book Store
+    </p>
+
+    <p>
+        Developed by <strong>Shurayb and Aamin</strong>
+    </p>
+
+</footer>
 </body>
 </html>
