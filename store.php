@@ -32,7 +32,7 @@ $category = get_all_category($conn);
     <!-- bootstrap 5 Js bundle CDN-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/store.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 </head>
