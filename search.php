@@ -124,12 +124,14 @@ $category = get_all_category($conn);
 								<?php } ?>
 							<br></b></i>
 						</p>
-                       <a href="upload/file/<?=$book['file']?>"
-                          class="btn btn-success">Open</a>
+      <a href="upload/file/<?=$book['file']?>"
+class="btn btn-success">
+<i class="fas fa-book-open"></i> Read
+</a>
 
-      <a href="download.php?id=<?=$book['id']?>"
-   class="btn btn-primary">
-   Download
+<a href="download.php?file=<?=$book['file']?>"
+class="btn btn-primary">
+<i class="fas fa-download"></i> Download
 </a>
 					</div>
 				</div>
