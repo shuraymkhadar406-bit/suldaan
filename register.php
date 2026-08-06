@@ -13,7 +13,7 @@ if (isset($_SESSION['user_id'])) {
     <title>User Registration</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="css/registeration.css">
 </head>
 <body>
 
@@ -24,7 +24,7 @@ if (isset($_SESSION['user_id'])) {
           class="shadow p-5 rounded mx-auto"
           style="max-width:500px;">
 
-        <<h2 class="text-center mb-2">Create Account</h2>
+        <h2 class="text-center mb-2">Create Account</h2>
 
 <p class="text-center text-muted mb-4">
 Join the Digital Library & E-Book Store
