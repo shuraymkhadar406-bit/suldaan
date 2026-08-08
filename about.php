@@ -37,7 +37,11 @@
     <div class="row">
 
         <div class="col-md-6">
+<<<<<<< HEAD
             <h2>About Our System Worked</h2>
+=======
+            <h2>About Our System Worked & Worked @ vv</h2>
+>>>>>>> 7dbeb8c655ba9cd6e98db38cf33e6b547bdb0bad
 
             <p>
                 The Digital Library & E-Book Store is an online platform
