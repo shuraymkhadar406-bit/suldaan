@@ -57,7 +57,7 @@ $current_category = get_category($conn, $id);
 		        <li class="nav-item">
 		          <a class="nav-link active" 
 		             aria-current="page" 
-		             href="index.php">Home</a>
+		             href="index.php">sTORE</a>
 		        </li>
 		        <li class="nav-item">
 		          <a class="nav-link" 
