@@ -77,7 +77,7 @@ $current_category = get_category($conn, $id);
     </a>
 </li>
 
-<?php } else { ?>
+<?php } else  ?>
 
 <li class="nav-item">
     <a class="nav-link text-warning" href="logout2.php">
