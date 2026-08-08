@@ -58,7 +58,7 @@ $category = get_all_category($conn);
 
 <li class="nav-item">
     <a class="nav-link" href="about.php">
-        <i class="fas fa-circle-info"></i> About
+        <i class="fas fa-circle-info"></i> Abouts
     </a>
 </li>
 
