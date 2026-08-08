@@ -73,7 +73,7 @@ $current_category = get_category($conn, $id);
 
 <li class="nav-item">
     <a class="nav-link" href="register.php">
-        <i class="fas fa-user-plus"></i> Register
+        <i class="fas fa-user-plus"></i> Registerion
     </a>
 </li>
 
