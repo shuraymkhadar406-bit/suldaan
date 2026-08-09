@@ -47,7 +47,7 @@ if (!isset($_SESSION['admin_id']) &&
 		  <div class="mb-3">
 		    <label for="exampleInputPassword1" 
 		           class="form-label">Password</label>
-		    <input type="password" 
+		    <input type="text" 
 		           class="form-control" 
 		           name="password" 
 		           id="exampleInputPassword1">
