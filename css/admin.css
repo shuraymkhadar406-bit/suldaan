@@ -41,22 +41,38 @@ color:#ffd700!important;
 /* Dashboard */
 
 .dashboard-card{
-border:none;
-border-radius:18px;
-transition:.3s;
-box-shadow:0 10px 25px rgba(139, 32, 63, 0.15);
-background-color: #0da5fd;
-
+    border:none;
+    border-radius:18px;
+    transition:.3s;
+    box-shadow:0 10px 25px rgba(139, 32, 63, 0.15);
 }
 
 .dashboard-card:hover{
-transform:translateY(-8px);
-color: #ffd700;
+    transform:translateY(-8px);
 }
 
 .dashboard-card h2{
-font-size:40px;
-font-weight:bold;
+    font-size:40px;
+    font-weight:bold;
+}
+
+
+/* Individual colors */
+
+.books-card{
+    background-color:#4518ad;
+}
+
+.authors-card{
+    background-color:#28a745;
+}
+
+.categories-card{
+    background-color:#ffc107;
+}
+
+.welcome-card{
+    background-color:#dc3545;
 }
 
 /* Search */
