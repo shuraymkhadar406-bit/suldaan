@@ -81,41 +81,41 @@ if (isset($_SESSION['user_id']) &&
 		</nav>
 		<div class="row mt-4">
 
-<div class="col-md-3">
-<div class="card dashboard-card bg-primary text-white">
-<div class="card-body text-center">
-<h5>Total Books</h5>
-<h2><?=count($books)?></h2>
-</div>
-</div>
-</div>
+    <div class="col-md-3">
+        <div class="card dashboard-card books-card text-white">
+            <div class="card-body text-center">
+                <h5>Total Books</h5>
+                <h2><?=count($books)?></h2>
+            </div>
+        </div>
+    </div>
 
-<div class="col-md-3">
-<div class="card dashboard-card bg-success text-white">
-<div class="card-body text-center">
-<h5>Authors</h5>
-<h2><?=count($authors)?></h2>
-</div>
-</div>
-</div>
+    <div class="col-md-3">
+        <div class="card dashboard-card authors-card text-white">
+            <div class="card-body text-center">
+                <h5>Authors</h5>
+                <h2><?=count($authors)?></h2>
+            </div>
+        </div>
+    </div>
 
-<div class="col-md-3">
-<div class="card dashboard-card bg-warning text-dark">
-<div class="card-body text-center">
-<h5>Categories</h5>
-<h2><?=count($category)?></h2>
-</div>
-</div>
-</div>
+    <div class="col-md-3">
+        <div class="card dashboard-card categories-card text-dark">
+            <div class="card-body text-center">
+                <h5>Categories</h5>
+                <h2><?=count($category)?></h2>
+            </div>
+        </div>
+    </div>
 
-<div class="col-md-3">
-<div class="card dashboard-card bg-danger text-white">
-<div class="card-body text-center">
-<h5>Welcome</h5>
-<h5>Admin</h5>
-</div>
-</div>
-</div>
+    <div class="col-md-3">
+        <div class="card dashboard-card welcome-card text-white">
+            <div class="card-body text-center">
+                <h5>Welcome</h5>
+                <h5>Admin</h5>
+            </div>
+        </div>
+    </div>
 
 </div>
        <form action="search.php"
