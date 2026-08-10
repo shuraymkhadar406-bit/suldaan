@@ -44,11 +44,14 @@ color:#ffd700!important;
 border:none;
 border-radius:18px;
 transition:.3s;
-box-shadow:0 10px 25px rgba(0,0,0,.15);
+box-shadow:0 10px 25px rgba(139, 32, 63, 0.15);
+background-color: #0da5fd;
+
 }
 
 .dashboard-card:hover{
 transform:translateY(-8px);
+color: #ffd700;
 }
 
 .dashboard-card h2{

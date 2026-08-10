@@ -47,12 +47,16 @@ if (!isset($_SESSION['admin_id']) &&
 		  <div class="mb-3">
 		    <label for="exampleInputPassword1" 
 		           class="form-label">Password</label>
-		    <input type="text" 
+		    <input type="password" 
 		           class="form-control" 
 		           name="password" 
 		           id="exampleInputPassword1">
 		  </div>
-	
+	 <div class="text-end mb-3">
+                <a href="forget password.php">
+                    Forgot Password?
+                </a>
+            </div>
 		  <button type="submit" 
 		          class="btn btn-primary">
 		          Login</button>
